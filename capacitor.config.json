@@ -1,0 +1,8 @@
+{
+  "appId": "com.neonrunner.app",
+  "appName": "Neon Runner",
+  "webDir": "dist",
+  "android": {
+    "backgroundColor": "#0a0a15"
+  }
+}
