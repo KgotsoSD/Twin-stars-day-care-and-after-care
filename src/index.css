@@ -1,94 +1,81 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Cyberpunk Neon Endless Runner Design System */
-
 @layer base {
   :root {
-    --background: 220 25% 6%;
-    --foreground: 180 100% 95%;
+    --background: 40 33% 98%;
+    --foreground: 220 25% 20%;
 
-    --card: 220 30% 10%;
-    --card-foreground: 180 100% 95%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 20%;
 
-    --popover: 220 30% 10%;
-    --popover-foreground: 180 100% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 20%;
 
-    --primary: 180 100% 50%;
-    --primary-foreground: 220 25% 6%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 300 100% 60%;
-    --secondary-foreground: 220 25% 6%;
+    --secondary: 25 95% 55%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 20% 18%;
-    --muted-foreground: 220 15% 60%;
+    --muted: 40 20% 93%;
+    --muted-foreground: 220 10% 50%;
 
     --accent: 45 100% 55%;
-    --accent-foreground: 220 25% 6%;
+    --accent-foreground: 220 25% 15%;
 
     --destructive: 0 85% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 30% 20%;
-    --input: 220 30% 15%;
-    --ring: 180 100% 50%;
+    --border: 40 20% 88%;
+    --input: 40 20% 90%;
+    --ring: 199 89% 48%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    /* Game-specific colors */
-    --neon-cyan: 180 100% 50%;
-    --neon-magenta: 300 100% 60%;
-    --neon-yellow: 45 100% 55%;
-    --neon-green: 150 100% 50%;
-    --neon-orange: 25 100% 55%;
-    
-    /* Gradients */
-    --gradient-cyber: linear-gradient(135deg, hsl(180, 100%, 50%), hsl(300, 100%, 60%));
-    --gradient-sunset: linear-gradient(135deg, hsl(300, 100%, 60%), hsl(25, 100%, 55%));
-    --gradient-track: linear-gradient(180deg, hsl(220, 30%, 8%), hsl(220, 25%, 4%));
-    
-    /* Shadows */
-    --glow-cyan: 0 0 20px hsl(180 100% 50% / 0.5), 0 0 40px hsl(180 100% 50% / 0.3);
-    --glow-magenta: 0 0 20px hsl(300 100% 60% / 0.5), 0 0 40px hsl(300 100% 60% / 0.3);
-    --glow-yellow: 0 0 20px hsl(45 100% 55% / 0.5), 0 0 40px hsl(45 100% 55% / 0.3);
+    --sky: 199 89% 48%;
+    --orange: 25 95% 55%;
+    --sunshine: 45 100% 55%;
+    --leaf: 150 60% 45%;
+    --pink: 340 80% 65%;
+    --lavender: 270 60% 70%;
 
-    /* Fonts */
-    --font-display: 'Orbitron', sans-serif;
-    --font-body: 'Rajdhani', sans-serif;
+    --font-display: 'Nunito', sans-serif;
+    --font-body: 'Quicksand', sans-serif;
 
-    --sidebar-background: 220 25% 8%;
-    --sidebar-foreground: 180 100% 95%;
-    --sidebar-primary: 180 100% 50%;
-    --sidebar-primary-foreground: 220 25% 6%;
-    --sidebar-accent: 220 30% 15%;
-    --sidebar-accent-foreground: 180 100% 95%;
-    --sidebar-border: 220 30% 20%;
-    --sidebar-ring: 180 100% 50%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 25% 20%;
+    --sidebar-primary: 199 89% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 40 20% 95%;
+    --sidebar-accent-foreground: 220 25% 20%;
+    --sidebar-border: 40 20% 88%;
+    --sidebar-ring: 199 89% 48%;
   }
 
   .dark {
-    --background: 220 25% 6%;
-    --foreground: 180 100% 95%;
-    --card: 220 30% 10%;
-    --card-foreground: 180 100% 95%;
-    --popover: 220 30% 10%;
-    --popover-foreground: 180 100% 95%;
-    --primary: 180 100% 50%;
-    --primary-foreground: 220 25% 6%;
-    --secondary: 300 100% 60%;
-    --secondary-foreground: 220 25% 6%;
-    --muted: 220 20% 18%;
+    --background: 220 25% 10%;
+    --foreground: 40 33% 95%;
+    --card: 220 25% 14%;
+    --card-foreground: 40 33% 95%;
+    --popover: 220 25% 14%;
+    --popover-foreground: 40 33% 95%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 25 95% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 20% 20%;
     --muted-foreground: 220 15% 60%;
     --accent: 45 100% 55%;
-    --accent-foreground: 220 25% 6%;
+    --accent-foreground: 220 25% 10%;
     --destructive: 0 85% 55%;
     --destructive-foreground: 0 0% 100%;
-    --border: 220 30% 20%;
-    --input: 220 30% 15%;
-    --ring: 180 100% 50%;
+    --border: 220 20% 25%;
+    --input: 220 20% 22%;
+    --ring: 199 89% 48%;
   }
 }
 
@@ -98,11 +85,8 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
     font-family: var(--font-body);
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-    overflow: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -111,55 +95,12 @@
 }
 
 @layer components {
-  .btn-neon {
-    @apply relative px-8 py-4 font-display font-bold text-lg uppercase tracking-wider;
-    @apply bg-primary text-primary-foreground rounded-lg;
-    @apply transition-all duration-300 ease-out;
-    box-shadow: var(--glow-cyan);
+  .section-padding {
+    @apply px-4 py-16 md:px-8 md:py-24 lg:px-16;
   }
 
-  .btn-neon:hover {
-    @apply scale-105;
-    box-shadow: var(--glow-cyan), 0 0 60px hsl(180 100% 50% / 0.4);
-  }
-
-  .btn-neon:active {
-    @apply scale-95;
-  }
-
-  .btn-neon-secondary {
-    @apply relative px-8 py-4 font-display font-bold text-lg uppercase tracking-wider;
-    @apply bg-secondary text-secondary-foreground rounded-lg;
-    @apply transition-all duration-300 ease-out;
-    box-shadow: var(--glow-magenta);
-  }
-
-  .text-glow-cyan {
-    text-shadow: 0 0 10px hsl(180 100% 50% / 0.8), 0 0 20px hsl(180 100% 50% / 0.5), 0 0 30px hsl(180 100% 50% / 0.3);
-  }
-
-  .text-glow-magenta {
-    text-shadow: 0 0 10px hsl(300 100% 60% / 0.8), 0 0 20px hsl(300 100% 60% / 0.5), 0 0 30px hsl(300 100% 60% / 0.3);
-  }
-
-  .text-glow-yellow {
-    text-shadow: 0 0 10px hsl(45 100% 55% / 0.8), 0 0 20px hsl(45 100% 55% / 0.5);
-  }
-
-  .game-hud {
-    @apply fixed top-0 left-0 right-0 p-4 z-50;
-    @apply flex justify-between items-start;
-    background: linear-gradient(180deg, hsl(220 25% 6% / 0.8) 0%, transparent 100%);
-  }
-
-  .score-display {
-    @apply font-display text-3xl font-bold text-primary;
-    text-shadow: var(--glow-cyan);
-  }
-
-  .coin-display {
-    @apply font-display text-2xl font-bold text-accent;
-    text-shadow: var(--glow-yellow);
+  .container-main {
+    @apply max-w-7xl mx-auto;
   }
 }
 
@@ -170,33 +111,5 @@
 
   .font-body {
     font-family: var(--font-body);
-  }
-
-  .animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse-glow {
-    0%, 100% {
-      opacity: 1;
-      filter: brightness(1);
-    }
-    50% {
-      opacity: 0.8;
-      filter: brightness(1.2);
-    }
-  }
-
-  .animate-float {
-    animation: float 3s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
   }
 }
