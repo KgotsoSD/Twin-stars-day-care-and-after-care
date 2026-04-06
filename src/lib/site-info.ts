@@ -1,7 +1,7 @@
 /** Twin Stars - contact, hours, and map (keep in sync with printed materials & live site). */
 
-/** Public contact email. Using a personal inbox for Netlify form testing; switch back to twinstarsdaycare@gmail.com when ready. */
-export const SITE_EMAIL = 'kgmaduna01@gmail.com';
+/** Public contact email (mailto links, Contact page, navbar, footer). */
+export const SITE_EMAIL = 'twinstarsdaycare@gmail.com';
 
 export const SITE_ADDRESS = '874 Crassula Crescent, New Modder, Benoni 1501';
 
