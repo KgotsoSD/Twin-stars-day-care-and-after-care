@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, MapPin, Mail, Facebook, Instagram } from 'lucide-react';
-import { SITE_ADDRESS } from '@/lib/site-info';
+import { SITE_ADDRESS, SITE_EMAIL } from '@/lib/site-info';
 
 const navLinks = [
   { to: '/', label: 'Welcome' },
@@ -25,10 +25,10 @@ export function Navbar() {
               <MapPin className="w-3 h-3" />
               {SITE_ADDRESS}
             </span>
-            <span className="flex items-center gap-1.5">
+            <a href={`mailto:${SITE_EMAIL}`} className="flex items-center gap-1.5 hover:underline">
               <Mail className="w-3 h-3" />
-              twinstarsdaycare@gmail.com
-            </span>
+              {SITE_EMAIL}
+            </a>
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin, Clock, Send, ArrowRight, MessageSquareText, Handsh
 import { PageHeader } from '@/components/shared/PageHeader';
 import {
   SITE_ADDRESS,
+  SITE_EMAIL,
   SITE_HOURS_CALENDAR,
   SITE_HOURS_PRIMARY,
   SITE_HOURS_SATURDAY,
@@ -10,12 +11,44 @@ import {
   getGoogleMapsEmbedSrc,
 } from '@/lib/site-info';
 
+const encodeBody = (form: HTMLFormElement) => {
+  const params = new URLSearchParams();
+  new FormData(form).forEach((value, key) => {
+    params.append(key, value instanceof File ? value.name : value);
+  });
+  return params.toString();
+};
+
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitError(null);
+    setSubmitting(true);
+
+    const form = e.currentTarget;
+
+    try {
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encodeBody(form),
+      });
+
+      if (!res.ok) {
+        throw new Error(`Request failed: ${res.status}`);
+      }
+
+      setSubmitted(true);
+      form.reset();
+    } catch {
+      setSubmitError('We could not send your message right now. Please email or call us instead.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -49,7 +82,7 @@ const Contact = () => {
                   </div>
                 </div>
                 {[
-                  { icon: Mail, label: 'Email', value: 'twinstarsdaycare@gmail.com', href: 'mailto:twinstarsdaycare@gmail.com' },
+                  { icon: Mail, label: 'Email', value: SITE_EMAIL, href: `mailto:${SITE_EMAIL}` },
                   { icon: MapPin, label: 'Address', value: SITE_ADDRESS },
                   {
                     icon: Clock,
@@ -100,12 +133,26 @@ const Contact = () => {
                   <p className="font-body text-muted-foreground">Thank you for reaching out. We will get back to you within 24 hours.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5 bg-card rounded-3xl p-8 border border-border shadow-sm">
+                <form
+                  name="contact"
+                  method="POST"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                  onSubmit={handleSubmit}
+                  className="space-y-5 bg-card rounded-3xl p-8 border border-border shadow-sm"
+                >
+                  <input type="hidden" name="form-name" value="contact" />
+                  <p className="sr-only">
+                    <label>
+                      Do not fill this out: <input name="bot-field" tabIndex={-1} autoComplete="off" />
+                    </label>
+                  </p>
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block font-display font-bold text-sm text-foreground mb-2">First Name</label>
                       <input
                         type="text"
+                        name="firstName"
                         required
                         className="w-full px-4 py-3 rounded-xl border border-border bg-background font-body focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                         placeholder="Your first name"
@@ -115,6 +162,7 @@ const Contact = () => {
                       <label className="block font-display font-bold text-sm text-foreground mb-2">Last Name</label>
                       <input
                         type="text"
+                        name="lastName"
                         required
                         className="w-full px-4 py-3 rounded-xl border border-border bg-background font-body focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                         placeholder="Your last name"
@@ -125,6 +173,7 @@ const Contact = () => {
                     <label className="block font-display font-bold text-sm text-foreground mb-2">Email</label>
                     <input
                       type="email"
+                      name="email"
                       required
                       className="w-full px-4 py-3 rounded-xl border border-border bg-background font-body focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                       placeholder="you@email.com"
@@ -134,6 +183,7 @@ const Contact = () => {
                     <label className="block font-display font-bold text-sm text-foreground mb-2">Phone</label>
                     <input
                       type="tel"
+                      name="phone"
                       className="w-full px-4 py-3 rounded-xl border border-border bg-background font-body focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                       placeholder="Your phone number"
                     />
@@ -141,17 +191,24 @@ const Contact = () => {
                   <div>
                     <label className="block font-display font-bold text-sm text-foreground mb-2">Message</label>
                     <textarea
+                      name="message"
                       required
                       rows={4}
                       className="w-full px-4 py-3 rounded-xl border border-border bg-background font-body focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all resize-none"
                       placeholder="How can we help you?"
                     />
                   </div>
+                  {submitError ? (
+                    <p className="text-sm font-body text-destructive" role="alert">
+                      {submitError}
+                    </p>
+                  ) : null}
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-primary text-primary-foreground rounded-xl font-display font-bold hover:shadow-lg hover:shadow-primary/20 transition-all"
+                    disabled={submitting}
+                    className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-primary text-primary-foreground rounded-xl font-display font-bold hover:shadow-lg hover:shadow-primary/20 transition-all disabled:opacity-60 disabled:pointer-events-none"
                   >
-                    Send Message
+                    {submitting ? 'Sending…' : 'Send Message'}
                     <ArrowRight className="w-4 h-4" />
                   </button>
                 </form>

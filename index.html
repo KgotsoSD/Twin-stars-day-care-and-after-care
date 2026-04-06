@@ -20,6 +20,14 @@
   </head>
 
   <body>
+    <!-- Netlify parses this at build time to enable Form submissions from the SPA -->
+    <form name="contact" netlify netlify-honeypot="bot-field" data-netlify="true" hidden>
+      <input type="text" name="firstName" />
+      <input type="text" name="lastName" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <textarea name="message"></textarea>
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

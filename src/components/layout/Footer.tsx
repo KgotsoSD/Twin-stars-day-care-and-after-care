@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Heart } from 'lucide-react';
-import { SITE_ADDRESS, SITE_HOURS_CALENDAR, SITE_HOURS_PRIMARY, SITE_HOURS_SATURDAY, SITE_PHONES } from '@/lib/site-info';
+import { SITE_ADDRESS, SITE_EMAIL, SITE_HOURS_CALENDAR, SITE_HOURS_PRIMARY, SITE_HOURS_SATURDAY, SITE_PHONES } from '@/lib/site-info';
 
 export function Footer() {
   return (
@@ -89,7 +89,9 @@ export function Footer() {
                 </li>
                 <li className="flex items-center gap-2.5 opacity-70">
                   <Mail className="w-4 h-4 shrink-0 text-primary" />
-                  <span>twinstarsdaycare@gmail.com</span>
+                  <a href={`mailto:${SITE_EMAIL}`} className="hover:text-primary transition-colors">
+                    {SITE_EMAIL}
+                  </a>
                 </li>
                 <li className="flex items-start gap-2.5 opacity-70">
                   <Clock className="w-4 h-4 mt-0.5 shrink-0 text-primary" />
