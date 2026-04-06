@@ -21,7 +21,7 @@
 
   <body>
     <!-- Netlify parses this at build time to enable Form submissions from the SPA -->
-    <form name="contact" netlify netlify-honeypot="bot-field" data-netlify="true" hidden>
+    <form name="contact" method="POST" action="/index.html" netlify netlify-honeypot="bot-field" data-netlify="true" style="display:none" aria-hidden="true">
       <input type="text" name="firstName" />
       <input type="text" name="lastName" />
       <input type="email" name="email" />

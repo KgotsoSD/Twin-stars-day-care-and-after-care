@@ -30,7 +30,8 @@ const Contact = () => {
     setSubmitting(true);
 
     const form = e.currentTarget;
-    const action = form.getAttribute('action') || '/';
+    // Netlify + SPA: posting to /index.html avoids edge cases where POST / interacts with SPA rewrites
+    const action = form.getAttribute('action') || '/index.html';
 
     if (import.meta.env.DEV) {
       setSubmitting(false);
@@ -42,10 +43,14 @@ const Contact = () => {
       const body = encodeFormAsUrlEncoded(form);
       const res = await fetch(action, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body,
       });
 
+      // Netlify usually returns 200; some configs return 302—following redirects can still yield ok
+      if (res.status === 404) {
+        throw new Error('Form not registered (check Netlify deploy contains the static form in index.html).');
+      }
       if (!res.ok) {
         throw new Error(`Request failed: ${res.status}`);
       }
@@ -144,7 +149,7 @@ const Contact = () => {
                 <form
                   name="contact"
                   method="POST"
-                  action="/"
+                  action="/index.html"
                   data-netlify="true"
                   data-netlify-honeypot="bot-field"
                   onSubmit={handleSubmit}
