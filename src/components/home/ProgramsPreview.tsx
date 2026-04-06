@@ -1,50 +1,50 @@
 import { Link } from 'react-router-dom';
-import { Baby, Puzzle, GraduationCap, BookOpen } from 'lucide-react';
+import { Baby, Puzzle, GraduationCap, BookOpen, ClipboardList } from 'lucide-react';
 
 const programs = [
   {
     icon: Baby,
     title: 'Twin Stars Beginnings',
     subtitle: 'Infant Care',
-    age: '6 weeks – 12 months',
+    age: '1 month - 12 months',
     desc: 'Tender loving care with focus on sensory development, bonding, and meeting individual needs.',
     gradient: 'from-pink-light to-card',
     iconBg: 'bg-pink/15 text-pink',
     borderColor: 'border-pink/20',
-    img: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400&h=300&fit=crop',
+    img: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=800&h=600&fit=crop',
   },
   {
     icon: Puzzle,
     title: 'Twin Stars Sprouts',
     subtitle: 'Toddler Program',
-    age: '1 – 2 years',
+    age: '1 - 2 years',
     desc: 'Interactive play-based learning supporting language, motor skills, and social interaction.',
     gradient: 'from-teal-light to-card',
     iconBg: 'bg-secondary/15 text-secondary',
     borderColor: 'border-secondary/20',
-    img: 'https://images.unsplash.com/photo-1587654780251-5fe13ada3cba?w=400&h=300&fit=crop',
+    img: 'https://images.unsplash.com/photo-1544773088-d142e38f5793?auto=format&fit=crop&w=800&h=600&q=80',
   },
   {
     icon: GraduationCap,
     title: 'Twin Stars Pathways',
     subtitle: 'Preschool Program',
-    age: '3 – 5 years',
+    age: '2 - 4 years',
     desc: 'Structured curriculum preparing children for school with literacy, numeracy, and creative arts.',
     gradient: 'from-sunshine-light to-card',
     iconBg: 'bg-sunshine/15 text-accent-foreground',
     borderColor: 'border-sunshine/20',
-    img: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=300&fit=crop',
+    img: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&h=600&fit=crop',
   },
   {
     icon: BookOpen,
     title: 'Twin Stars Achievers',
     subtitle: 'After Care & Holiday Program',
-    age: '6 – 12 years',
-    desc: 'Supervised homework, enrichment activities, and a safe environment for school-age children.',
+    age: 'School age',
+    desc: 'Homework support, enrichment, computer class (ages 3-15), and a safe space after school, including optional night sleepover where offered.',
     gradient: 'from-leaf-light to-card',
     iconBg: 'bg-leaf/15 text-leaf',
     borderColor: 'border-leaf/20',
-    img: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&h=300&fit=crop',
+    img: 'https://images.unsplash.com/photo-1588072432904-843af37f03ed?auto=format&fit=crop&w=800&h=600&q=80',
   },
 ];
 
@@ -57,7 +57,10 @@ export function ProgramsPreview() {
 
       <div className="container-main">
         <div className="text-center mb-14">
-          <span className="inline-block font-display font-bold text-primary text-sm mb-2 animate-fade-in">Our Programs ✦</span>
+          <span className="inline-flex items-center gap-2 font-display font-bold text-primary text-sm mb-2 animate-fade-in">
+            <ClipboardList className="w-4 h-4" />
+            Our Programs
+          </span>
           <h2 className="font-display font-black text-3xl md:text-4xl text-foreground mb-4 animate-fade-in" style={{ animationDelay: '0.1s' }}>
             Programs Designed for Growth
           </h2>

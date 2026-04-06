@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import { AlertCircle } from "lucide-react";
 
 const NotFound = () => {
   return (
     <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4">
-      <div className="text-6xl mb-4">⭐</div>
+      <AlertCircle className="w-14 h-14 mb-4 text-primary" />
       <h1 className="font-display font-black text-4xl text-foreground mb-4">Page Not Found</h1>
       <p className="font-body text-muted-foreground mb-8 max-w-md">
         Oops! This page seems to have wandered off. Let's get you back to safety.

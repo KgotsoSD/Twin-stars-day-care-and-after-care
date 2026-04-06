@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Phone, MapPin, ArrowRight } from 'lucide-react';
+import { SITE_ADDRESS, SITE_PHONES } from '@/lib/site-info';
 
 export function CTASection() {
   return (
@@ -34,17 +35,17 @@ export function CTASection() {
               <ArrowRight className="w-4 h-4" />
             </Link>
             <a
-              href="tel:0123456789"
+              href={`tel:${SITE_PHONES[0].tel}`}
               className="px-8 py-4 bg-primary-foreground/15 backdrop-blur-sm text-primary-foreground rounded-full font-display font-bold hover:bg-primary-foreground/25 transition-all flex items-center justify-center gap-2"
             >
               <Phone className="w-5 h-5" />
-              Call Us Now
+              Call {SITE_PHONES[0].display}
             </a>
           </div>
 
           <div className="flex items-center justify-center gap-2 opacity-70 font-body text-sm">
             <MapPin className="w-4 h-4" />
-            <span>123 Sunshine Street, Your City, South Africa</span>
+            <span>{SITE_ADDRESS}</span>
           </div>
         </div>
       </div>

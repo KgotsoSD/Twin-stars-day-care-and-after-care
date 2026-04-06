@@ -1,10 +1,10 @@
-import { BookOpen, Users, Sparkles, Heart, Shield, Award } from 'lucide-react';
+import { BookOpen, Users, Lightbulb, Heart, Shield, Award, BookMarked, Target, BriefcaseBusiness } from 'lucide-react';
 import { PageHeader } from '@/components/shared/PageHeader';
 
 const values = [
   { icon: Shield, title: 'Safety', desc: 'A secure, supervised environment where children are protected at all times.', color: 'bg-secondary/10 text-secondary' },
   { icon: Heart, title: 'Respect', desc: 'Every child, family, and staff member is treated with dignity and kindness.', color: 'bg-primary/10 text-primary' },
-  { icon: Sparkles, title: 'Creativity', desc: 'We foster imagination through art, music, play, and exploration.', color: 'bg-sunshine/15 text-accent-foreground' },
+  { icon: Lightbulb, title: 'Creativity', desc: 'We foster imagination through art, music, play, and exploration.', color: 'bg-sunshine/15 text-accent-foreground' },
   { icon: Users, title: 'Inclusivity', desc: 'We welcome families from all backgrounds and cultures.', color: 'bg-leaf/10 text-leaf' },
   { icon: BookOpen, title: 'Learning', desc: 'Play-based education that builds a strong foundation for lifelong learning.', color: 'bg-pink/10 text-pink' },
   { icon: Award, title: 'Excellence', desc: 'We strive for the highest standards in everything we do.', color: 'bg-lavender/15 text-foreground' },
@@ -35,7 +35,7 @@ const About = () => {
             <div className="absolute -bottom-4 -right-4 w-20 h-20 rounded-2xl border-4 border-primary/20 -z-10" />
           </div>
           <div className="animate-fade-in-right">
-            <span className="inline-block font-display font-bold text-primary text-sm mb-2">Our Story ✦</span>
+            <span className="inline-flex items-center gap-2 font-display font-bold text-primary text-sm mb-2"><BookMarked className="w-4 h-4" />Our Story</span>
             <h2 className="font-display font-black text-3xl text-foreground mb-6">Foundation is the Future</h2>
             <p className="font-body text-muted-foreground leading-relaxed mb-4">
               Twin Stars Day Care & After Care was founded with a simple yet powerful belief: that every child deserves a nurturing environment where they can grow, learn, and shine.
@@ -54,7 +54,7 @@ const About = () => {
       <section className="section-padding relative" style={{ background: 'linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--coral-light)) 50%, hsl(var(--background)) 100%)' }}>
         <div className="container-main">
           <div className="text-center mb-12">
-            <span className="inline-block font-display font-bold text-primary text-sm mb-2">What We Stand For ✦</span>
+            <span className="inline-flex items-center gap-2 font-display font-bold text-primary text-sm mb-2"><Target className="w-4 h-4" />What We Stand For</span>
             <h2 className="font-display font-black text-3xl text-foreground">Our Values</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -79,7 +79,7 @@ const About = () => {
       <section className="section-padding">
         <div className="container-main">
           <div className="text-center mb-12">
-            <span className="inline-block font-display font-bold text-secondary text-sm mb-2">Hearts Behind Twin Stars ✦</span>
+            <span className="inline-flex items-center gap-2 font-display font-bold text-secondary text-sm mb-2"><BriefcaseBusiness className="w-4 h-4" />Hearts Behind Twin Stars</span>
             <h2 className="font-display font-black text-3xl text-foreground">We Care About Education</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">

@@ -5,7 +5,7 @@ const events = [
   {
     title: 'Open Day',
     date: 'April 15, 2026',
-    time: '9:00 AM – 12:00 PM',
+    time: '9:00 AM - 12:00 PM',
     location: 'Twin Stars Campus',
     desc: 'Come tour our facilities, meet the teachers, and learn about our programs. Light refreshments provided.',
     badge: 'Upcoming',
@@ -14,7 +14,7 @@ const events = [
   {
     title: 'Easter Egg Hunt',
     date: 'April 5, 2026',
-    time: '10:00 AM – 1:00 PM',
+    time: '10:00 AM - 1:00 PM',
     location: 'Twin Stars Garden',
     desc: 'A fun morning of egg hunting, face painting, and Easter crafts for all enrolled children.',
     badge: 'Upcoming',
@@ -23,7 +23,7 @@ const events = [
   {
     title: 'Parent Information Evening',
     date: 'May 10, 2026',
-    time: '6:00 PM – 7:30 PM',
+    time: '6:00 PM - 7:30 PM',
     location: 'Twin Stars Hall',
     desc: 'An evening to discuss curriculum updates, school readiness, and parenting tips with our education team.',
     badge: 'Upcoming',
@@ -32,7 +32,7 @@ const events = [
   {
     title: 'Sports Day',
     date: 'June 21, 2026',
-    time: '8:30 AM – 12:00 PM',
+    time: '8:30 AM - 12:00 PM',
     location: 'Local Sports Field',
     desc: 'Fun-filled sports activities for all age groups. Parents welcome to cheer and participate!',
     badge: 'Save the Date',
@@ -41,7 +41,7 @@ const events = [
   {
     title: 'Winter Concert',
     date: 'July 18, 2026',
-    time: '5:00 PM – 6:30 PM',
+    time: '5:00 PM - 6:30 PM',
     location: 'Twin Stars Hall',
     desc: 'Our children showcase their talents in singing, dancing, and performing arts. A magical evening for the whole family.',
     badge: 'Save the Date',

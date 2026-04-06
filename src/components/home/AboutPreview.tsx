@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { BookOpen, Users, Sparkles } from 'lucide-react';
+import { BookOpen, Users, GraduationCap } from 'lucide-react';
 
 export function AboutPreview() {
   return (
@@ -19,17 +19,9 @@ export function AboutPreview() {
             <div className="relative">
               <div className="rounded-3xl overflow-hidden shadow-xl border-4 border-card">
                 <img
-                  src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=600&h=450&fit=crop"
+                  src="https://images.unsplash.com/photo-1544773088-d142e38f5793?auto=format&fit=crop&w=600&h=450&q=80"
                   alt="Children learning"
                   className="w-full h-64 md:h-80 object-cover"
-                />
-              </div>
-              {/* Overlapping smaller image */}
-              <div className="absolute -bottom-6 -right-4 md:-right-8 w-40 md:w-52 rounded-2xl overflow-hidden shadow-xl border-4 border-card">
-                <img
-                  src="https://images.unsplash.com/photo-1587654780251-5fe13ada3cba?w=300&h=250&fit=crop"
-                  alt="Happy children"
-                  className="w-full h-32 md:h-40 object-cover"
                 />
               </div>
               {/* Decorative border shape */}
@@ -39,9 +31,9 @@ export function AboutPreview() {
 
           {/* Content */}
           <div className="animate-fade-in-right">
-            <span className="inline-block font-display font-bold text-primary text-sm mb-2">Our Roots ✦</span>
+            <span className="inline-block font-display font-bold text-primary text-sm mb-2">Our Roots</span>
             <h2 className="font-display font-black text-3xl md:text-4xl text-foreground mb-6 leading-tight">
-              From 6 Weeks to 12 Years
+              From 1 Month Through School Age
             </h2>
             <p className="font-body text-muted-foreground leading-relaxed mb-4">
               Twin Stars Day Care & After Care was founded with a simple yet powerful belief: that every child deserves a nurturing environment where they can grow, learn, and shine.
@@ -55,7 +47,7 @@ export function AboutPreview() {
               {[
                 { icon: BookOpen, label: 'Play-Based Learning', color: 'bg-primary/10 text-primary' },
                 { icon: Users, label: 'Qualified Teachers', color: 'bg-secondary/10 text-secondary' },
-                { icon: Sparkles, label: 'Creative Growth', color: 'bg-sunshine/15 text-accent-foreground' },
+                { icon: GraduationCap, label: 'School Readiness', color: 'bg-sunshine/15 text-accent-foreground' },
               ].map(({ icon: Icon, label, color }) => (
                 <div key={label} className="text-center p-3 rounded-xl bg-background border border-border">
                   <div className={`w-10 h-10 rounded-lg ${color} flex items-center justify-center mx-auto mb-2`}>
@@ -76,12 +68,11 @@ export function AboutPreview() {
         </div>
 
         {/* Stats */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="mt-20 grid grid-cols-2 md:grid-cols-3 gap-6">
           {[
             { number: '10+', label: 'Years Experience', color: 'text-primary' },
-            { number: '200+', label: 'Happy Families', color: 'text-secondary' },
             { number: '100%', label: 'Dedicated Staff', color: 'text-leaf' },
-            { number: '⭐ 5', label: 'Parent Rating', color: 'text-sunshine' },
+            { number: '5/5', label: 'Parent Rating', color: 'text-sunshine' },
           ].map(({ number, label, color }) => (
             <div key={label} className="text-center py-6 bg-background rounded-2xl border border-border">
               <div className={`font-display font-black text-3xl md:text-4xl ${color} mb-1`}>{number}</div>

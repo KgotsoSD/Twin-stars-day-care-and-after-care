@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, MapPin, Mail, Facebook, Instagram } from 'lucide-react';
+import { SITE_ADDRESS } from '@/lib/site-info';
 
 const navLinks = [
   { to: '/', label: 'Welcome' },
   { to: '/about', label: 'About Us' },
   { to: '/programs', label: 'Programs' },
-  { to: '/fees', label: 'Fees' },
-  { to: '/events', label: 'Events' },
   { to: '/gallery', label: 'Gallery' },
   { to: '/faq', label: 'FAQ' },
 ];
@@ -24,11 +23,11 @@ export function Navbar() {
           <div className="flex items-center gap-5">
             <span className="flex items-center gap-1.5">
               <MapPin className="w-3 h-3" />
-              123 Sunshine Street, Your City, South Africa
+              {SITE_ADDRESS}
             </span>
             <span className="flex items-center gap-1.5">
               <Mail className="w-3 h-3" />
-              info@twinstars.co.za
+              twinstarsdaycare@gmail.com
             </span>
           </div>
           <div className="flex items-center gap-2">

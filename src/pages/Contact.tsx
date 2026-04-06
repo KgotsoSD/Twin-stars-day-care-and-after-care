@@ -1,6 +1,14 @@
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Send, ArrowRight } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, ArrowRight, MessageSquareText, Handshake } from 'lucide-react';
 import { PageHeader } from '@/components/shared/PageHeader';
+import {
+  SITE_ADDRESS,
+  SITE_HOURS_CALENDAR,
+  SITE_HOURS_PRIMARY,
+  SITE_HOURS_SATURDAY,
+  SITE_PHONES,
+  getGoogleMapsEmbedSrc,
+} from '@/lib/site-info';
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -22,14 +30,32 @@ const Contact = () => {
           <div className="grid lg:grid-cols-2 gap-14">
             {/* Contact Info */}
             <div className="animate-fade-in-left">
-              <span className="inline-block font-display font-bold text-primary text-sm mb-2">Get in Touch ✦</span>
+              <span className="inline-flex items-center gap-2 font-display font-bold text-primary text-sm mb-2"><Handshake className="w-4 h-4" />Get in Touch</span>
               <h2 className="font-display font-black text-3xl text-foreground mb-8">We're Here for You</h2>
               <div className="space-y-5 mb-10">
+                <div className="flex items-start gap-4 bg-card rounded-2xl p-4 border border-border">
+                  <div className="p-3 rounded-xl bg-primary/10 text-primary shrink-0">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="font-display font-bold text-foreground text-sm">Phone</p>
+                    <div className="font-body text-muted-foreground space-y-1">
+                      {SITE_PHONES.map(({ display, tel }) => (
+                        <a key={tel} href={`tel:${tel}`} className="block hover:text-primary transition-colors">
+                          {display}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
                 {[
-                  { icon: Phone, label: 'Phone', value: '012 345 6789', href: 'tel:0123456789' },
-                  { icon: Mail, label: 'Email', value: 'info@twinstars.co.za', href: 'mailto:info@twinstars.co.za' },
-                  { icon: MapPin, label: 'Address', value: '123 Sunshine Street, Your City, South Africa' },
-                  { icon: Clock, label: 'Hours', value: 'Mon–Fri: 6:30am – 5:30pm' },
+                  { icon: Mail, label: 'Email', value: 'twinstarsdaycare@gmail.com', href: 'mailto:twinstarsdaycare@gmail.com' },
+                  { icon: MapPin, label: 'Address', value: SITE_ADDRESS },
+                  {
+                    icon: Clock,
+                    label: 'Hours',
+                    value: [SITE_HOURS_PRIMARY, SITE_HOURS_SATURDAY, SITE_HOURS_CALENDAR].join('\n'),
+                  },
                 ].map(({ icon: Icon, label, value, href }) => (
                   <div key={label} className="flex items-start gap-4 bg-card rounded-2xl p-4 border border-border">
                     <div className="p-3 rounded-xl bg-primary/10 text-primary shrink-0">
@@ -42,25 +68,28 @@ const Contact = () => {
                           {value}
                         </a>
                       ) : (
-                        <p className="font-body text-muted-foreground">{value}</p>
+                        <p className="font-body text-muted-foreground whitespace-pre-line">{value}</p>
                       )}
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* Map placeholder */}
-              <div className="rounded-3xl overflow-hidden border border-border h-64 bg-muted flex items-center justify-center">
-                <div className="text-center text-muted-foreground">
-                  <MapPin className="w-10 h-10 mx-auto mb-2 opacity-30" />
-                  <p className="font-body text-sm">Google Maps integration coming soon</p>
-                </div>
+              <div className="rounded-3xl overflow-hidden border border-border aspect-[4/3] max-h-[380px] bg-muted">
+                <iframe
+                  title="Twin Stars location on Google Maps"
+                  src={getGoogleMapsEmbedSrc()}
+                  className="w-full h-full min-h-[280px] border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
               </div>
             </div>
 
             {/* Contact Form */}
             <div className="animate-fade-in-right">
-              <span className="inline-block font-display font-bold text-secondary text-sm mb-2">Send a Message ✦</span>
+              <span className="inline-flex items-center gap-2 font-display font-bold text-secondary text-sm mb-2"><MessageSquareText className="w-4 h-4" />Send a Message</span>
               <h2 className="font-display font-black text-3xl text-foreground mb-8">Drop Us a Line</h2>
               {submitted ? (
                 <div className="bg-leaf/10 border border-leaf/30 rounded-3xl p-10 text-center">

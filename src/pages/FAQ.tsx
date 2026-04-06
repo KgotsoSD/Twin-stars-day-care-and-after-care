@@ -3,8 +3,14 @@ import { ChevronDown } from 'lucide-react';
 import { PageHeader } from '@/components/shared/PageHeader';
 
 const faqs = [
-  { q: 'What are your operating hours?', a: 'We are open Monday to Friday from 6:30 AM to 5:30 PM. We offer a 30-minute grace period for late pickups.' },
-  { q: 'What age groups do you cater for?', a: 'We accept children from 6 weeks old up to 12 years. We have dedicated programs for Infants, Toddlers, Preschoolers, and After Care for school-age children.' },
+  {
+    q: 'What are your operating hours?',
+    a: 'Monday to Friday: 6:00 AM - 6:00 PM. Saturday: 6:30 AM - 6:00 PM. We are open January through December and closed on public holidays.',
+  },
+  {
+    q: 'What age groups do you cater for?',
+    a: 'Programs are designed for babies from 1 month through 12 months, toddlers (1-2 years), and preschoolers (2-4 years), as well as after care with homework support for school-age children.',
+  },
   { q: 'What qualifications do your teachers have?', a: 'All our caregivers hold relevant qualifications in Early Childhood Development (ECD) and are regularly trained in first aid, child safety, and the latest educational methodologies.' },
   { q: 'Do you provide meals?', a: 'Yes, we provide a nutritious breakfast, lunch, and afternoon snack daily. Our menus are balanced and take allergies and dietary requirements into account.' },
   { q: 'How do I enroll my child?', a: "You can start by visiting our Contact page to schedule a tour. After the visit, we'll provide enrollment forms and guide you through the registration process." },

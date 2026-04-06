@@ -1,4 +1,4 @@
-import { Star, Quote } from 'lucide-react';
+import { Quote, MessageCircleHeart } from 'lucide-react';
 
 const testimonials = [
   {
@@ -30,7 +30,10 @@ export function Testimonials() {
 
       <div className="container-main">
         <div className="text-center mb-14">
-          <span className="inline-block font-display font-bold text-secondary text-sm mb-2 animate-fade-in">Testimonials ✦</span>
+          <span className="inline-flex items-center gap-2 font-display font-bold text-secondary text-sm mb-2 animate-fade-in">
+            <MessageCircleHeart className="w-4 h-4" />
+            Testimonials
+          </span>
           <h2 className="font-display font-black text-3xl md:text-4xl text-foreground mb-4 animate-fade-in" style={{ animationDelay: '0.1s' }}>
             What Parents Say
           </h2>
@@ -46,11 +49,6 @@ export function Testimonials() {
               className="bg-card rounded-3xl p-8 shadow-sm border border-border hover:shadow-xl transition-all hover:-translate-y-1 animate-fade-in"
               style={{ animationDelay: `${i * 0.15}s` }}
             >
-              <div className="flex items-center gap-1 mb-4">
-                {Array.from({ length: t.rating }).map((_, j) => (
-                  <Star key={j} className="w-4 h-4 text-sunshine" fill="currentColor" />
-                ))}
-              </div>
               <Quote className="w-8 h-8 text-primary/20 mb-3" />
               <p className="font-body text-foreground leading-relaxed mb-6">"{t.text}"</p>
               <div className="border-t border-border pt-4">

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Heart } from 'lucide-react';
+import { SITE_ADDRESS, SITE_HOURS_CALENDAR, SITE_HOURS_PRIMARY, SITE_HOURS_SATURDAY, SITE_PHONES } from '@/lib/site-info';
 
 export function Footer() {
   return (
@@ -43,8 +44,6 @@ export function Footer() {
                 {[
                   { to: '/about', label: 'About Us' },
                   { to: '/programs', label: 'Programs' },
-                  { to: '/fees', label: 'Fees' },
-                  { to: '/events', label: 'Events' },
                   { to: '/gallery', label: 'Gallery' },
                   { to: '/faq', label: 'FAQ' },
                   { to: '/contact', label: 'Contact' },
@@ -62,10 +61,10 @@ export function Footer() {
             <div>
               <h4 className="font-display font-bold text-base mb-5">Our Programs</h4>
               <ul className="space-y-2.5 font-body text-sm opacity-70">
-                <li>Infants (6 weeks–12 months)</li>
-                <li>Toddlers (1–2 years)</li>
-                <li>Preschool (3–5 years)</li>
-                <li>After Care (6–12 years)</li>
+                <li>Infants (1 month-12 months)</li>
+                <li>Toddlers (1-2 years)</li>
+                <li>Preschool (2-4 years)</li>
+                <li>After care & school-age support</li>
                 <li>Holiday Programs</li>
               </ul>
             </div>
@@ -76,27 +75,32 @@ export function Footer() {
               <ul className="space-y-3.5 font-body text-sm">
                 <li className="flex items-start gap-2.5 opacity-70">
                   <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-primary" />
-                  <span>123 Sunshine Street, Your City, South Africa</span>
+                  <span>{SITE_ADDRESS}</span>
                 </li>
-                <li className="flex items-center gap-2.5 opacity-70">
-                  <Phone className="w-4 h-4 shrink-0 text-primary" />
-                  <span>012 345 6789</span>
+                <li className="flex items-start gap-2.5 opacity-70">
+                  <Phone className="w-4 h-4 mt-0.5 shrink-0 text-primary" />
+                  <span className="space-y-0.5">
+                    {SITE_PHONES.map(({ display, tel }) => (
+                      <a key={tel} href={`tel:${tel}`} className="block hover:text-primary transition-colors">
+                        {display}
+                      </a>
+                    ))}
+                  </span>
                 </li>
                 <li className="flex items-center gap-2.5 opacity-70">
                   <Mail className="w-4 h-4 shrink-0 text-primary" />
-                  <span>info@twinstars.co.za</span>
+                  <span>twinstarsdaycare@gmail.com</span>
                 </li>
-                <li className="flex items-center gap-2.5 opacity-70">
-                  <Clock className="w-4 h-4 shrink-0 text-primary" />
-                  <span>Mon–Fri: 6:30am – 5:30pm</span>
+                <li className="flex items-start gap-2.5 opacity-70">
+                  <Clock className="w-4 h-4 mt-0.5 shrink-0 text-primary" />
+                  <span className="space-y-0.5">
+                    <span className="block">{SITE_HOURS_PRIMARY}</span>
+                    <span className="block">{SITE_HOURS_SATURDAY}</span>
+                    <span className="block text-xs opacity-90">{SITE_HOURS_CALENDAR}</span>
+                  </span>
                 </li>
               </ul>
             </div>
-          </div>
-
-          <div className="mt-12 pt-8 border-t border-background/15 flex flex-col md:flex-row items-center justify-between gap-4 text-sm opacity-50 font-body">
-            <p>© {new Date().getFullYear()} Twin Stars Day Care & After Care. All rights reserved.</p>
-            <p className="flex items-center gap-1">Made with <Heart className="w-3 h-3 text-primary fill-primary" /> for little stars</p>
           </div>
         </div>
       </div>

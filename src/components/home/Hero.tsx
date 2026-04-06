@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Star, Shield, Clock, Heart, ArrowRight } from 'lucide-react';
+import { GraduationCap, Shield, Clock, Users, ArrowRight, BookOpen } from 'lucide-react';
 import { FloatingShapes } from '@/components/shared/FloatingShapes';
 
 export function Hero() {
@@ -12,7 +12,7 @@ export function Hero() {
           {/* Text */}
           <div className="text-center lg:text-left">
             <div className="inline-flex items-center gap-2 bg-card/80 backdrop-blur-sm text-primary px-5 py-2 rounded-full text-sm font-bold font-display mb-6 animate-fade-in shadow-sm">
-              <Star className="w-4 h-4 text-sunshine" fill="currentColor" />
+              <GraduationCap className="w-4 h-4 text-sunshine" />
               Preschool & After Care
             </div>
 
@@ -27,7 +27,7 @@ export function Hero() {
             </h1>
 
             <p className="font-body text-lg text-muted-foreground max-w-lg mx-auto lg:mx-0 mb-8 animate-fade-in leading-relaxed" style={{ animationDelay: '0.2s' }}>
-              For parents seeking a safe and engaging environment, Twin Stars Day Care offers quality care and early education for children from 6 weeks to 12 years.
+              For parents seeking a safe and engaging environment, Twin Stars Day Care and Aftercare offers quality childcare and early learning from 1 month through preschool (1-2 and 2-4 years), with after care and homework support for school-age children.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in" style={{ animationDelay: '0.3s' }}>
@@ -73,9 +73,9 @@ export function Hero() {
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 animate-fade-in" style={{ animationDelay: '0.5s' }}>
           {[
             { icon: Shield, label: 'Safe & Secure', color: 'text-secondary' },
-            { icon: Heart, label: 'Loving Teachers', color: 'text-primary' },
+            { icon: Users, label: 'Qualified Educators', color: 'text-primary' },
             { icon: Clock, label: 'Flexible Hours', color: 'text-secondary' },
-            { icon: Star, label: '5-Star Rated', color: 'text-sunshine' },
+            { icon: BookOpen, label: 'Homework Support', color: 'text-sunshine' },
           ].map(({ icon: Icon, label, color }) => (
             <div key={label} className="flex items-center gap-3 bg-card/80 backdrop-blur-sm rounded-2xl p-4 shadow-sm border border-border/50 hover:shadow-md transition-all hover:-translate-y-0.5">
               <div className={`p-2.5 rounded-xl bg-muted ${color}`}>
