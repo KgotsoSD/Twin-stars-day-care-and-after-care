@@ -23,7 +23,7 @@ export function CTASection() {
             Ready to Enroll Your Little Star?
           </h2>
           <p className="font-body text-lg opacity-90 max-w-xl mx-auto mb-10">
-            Come visit us and see why families choose Twin Stars for their children's early development journey.
+            Come visit us and see why families choose Twin Stars for the early development journey of their children.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">

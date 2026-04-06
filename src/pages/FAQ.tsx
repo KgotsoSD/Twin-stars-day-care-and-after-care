@@ -13,10 +13,8 @@ const faqs = [
   },
   { q: 'What qualifications do your teachers have?', a: 'All our caregivers hold relevant qualifications in Early Childhood Development (ECD) and are regularly trained in first aid, child safety, and the latest educational methodologies.' },
   { q: 'Do you provide meals?', a: 'Yes, we provide a nutritious breakfast, lunch, and afternoon snack daily. Our menus are balanced and take allergies and dietary requirements into account.' },
-  { q: 'How do I enroll my child?', a: "You can start by visiting our Contact page to schedule a tour. After the visit, we'll provide enrollment forms and guide you through the registration process." },
+  { q: 'How do I enroll my child?', a: 'You can start by visiting our Contact page to schedule a tour. After the visit, we will provide enrollment forms and guide you through the registration process.' },
   { q: 'What is your discipline policy?', a: 'We practice positive discipline, focusing on guidance, redirection, and age-appropriate boundaries. Physical punishment is strictly prohibited.' },
-  { q: 'Is the facility safe and secure?', a: 'Absolutely. We have secure perimeter fencing, CCTV monitoring, controlled access, and strict pick-up procedures. Safety is our top priority.' },
-  { q: 'Do you offer holiday programs?', a: 'Yes, we run exciting holiday programs during school breaks with themed activities, arts & crafts, sports, and educational outings.' },
   { q: 'What curriculum do you follow?', a: 'We follow a play-based curriculum aligned with the South African National Curriculum Framework for early childhood development, complemented by creative arts, physical activity, and social skills development.' },
 ];
 

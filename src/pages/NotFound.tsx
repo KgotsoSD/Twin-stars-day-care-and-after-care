@@ -7,7 +7,7 @@ const NotFound = () => {
       <AlertCircle className="w-14 h-14 mb-4 text-primary" />
       <h1 className="font-display font-black text-4xl text-foreground mb-4">Page Not Found</h1>
       <p className="font-body text-muted-foreground mb-8 max-w-md">
-        Oops! This page seems to have wandered off. Let's get you back to safety.
+        Oops! This page seems to have wandered off. Let us get you back to safety.
       </p>
       <Link
         to="/"

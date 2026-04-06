@@ -22,7 +22,7 @@ const Contact = () => {
     <>
       <PageHeader
         title="Connect With Us"
-        subtitle="We'd love to hear from you! Schedule a visit or send us a message."
+        subtitle="We would love to hear from you! Schedule a visit or send us a message."
       />
 
       <section className="section-padding">
@@ -31,7 +31,7 @@ const Contact = () => {
             {/* Contact Info */}
             <div className="animate-fade-in-left">
               <span className="inline-flex items-center gap-2 font-display font-bold text-primary text-sm mb-2"><Handshake className="w-4 h-4" />Get in Touch</span>
-              <h2 className="font-display font-black text-3xl text-foreground mb-8">We're Here for You</h2>
+              <h2 className="font-display font-black text-3xl text-foreground mb-8">We Are Here for You</h2>
               <div className="space-y-5 mb-10">
                 <div className="flex items-start gap-4 bg-card rounded-2xl p-4 border border-border">
                   <div className="p-3 rounded-xl bg-primary/10 text-primary shrink-0">
@@ -97,7 +97,7 @@ const Contact = () => {
                     <Send className="w-7 h-7 text-leaf" />
                   </div>
                   <h3 className="font-display font-bold text-xl text-foreground mb-2">Message Sent!</h3>
-                  <p className="font-body text-muted-foreground">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+                  <p className="font-body text-muted-foreground">Thank you for reaching out. We will get back to you within 24 hours.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5 bg-card rounded-3xl p-8 border border-border shadow-sm">

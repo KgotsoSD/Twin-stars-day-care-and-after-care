@@ -2,10 +2,10 @@ import { Quote, MessageCircleHeart } from 'lucide-react';
 
 const testimonials = [
   {
-    name: 'Sarah M.',
-    text: 'Twin Stars has been a blessing for our family. The teachers are so caring and my daughter has blossomed since enrolling.',
+    name: 'Kgotso M',
+    text: 'Twin Stars has been a blessing. The teachers are so caring and my son has blossomed since enrolling.',
     rating: 5,
-    role: 'Parent of a 3-year-old',
+    role: 'Parent of a 2-year-old',
   },
   {
     name: 'Thabo K.',
@@ -50,7 +50,7 @@ export function Testimonials() {
               style={{ animationDelay: `${i * 0.15}s` }}
             >
               <Quote className="w-8 h-8 text-primary/20 mb-3" />
-              <p className="font-body text-foreground leading-relaxed mb-6">"{t.text}"</p>
+              <p className="font-body text-foreground leading-relaxed mb-6">{t.text}</p>
               <div className="border-t border-border pt-4">
                 <span className="font-display font-bold text-foreground block">{t.name}</span>
                 <span className="font-body text-muted-foreground text-sm">{t.role}</span>

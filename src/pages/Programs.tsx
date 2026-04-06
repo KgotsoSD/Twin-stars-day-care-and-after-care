@@ -86,7 +86,7 @@ const Programs = () => {
                   <p className="font-body text-muted-foreground leading-relaxed">{prog.desc}</p>
                 </div>
                 <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-6 border border-border/50">
-                  <h3 className="font-display font-bold text-xs uppercase tracking-wider text-muted-foreground mb-4">What's included</h3>
+                  <h3 className="font-display font-bold text-xs uppercase tracking-wider text-muted-foreground mb-4">What is included</h3>
                   <ul className="space-y-3">
                     {prog.features.map(f => (
                       <li key={f} className="flex items-center gap-3 font-body text-foreground">

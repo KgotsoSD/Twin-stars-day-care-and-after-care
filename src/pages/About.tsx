@@ -11,9 +11,9 @@ const values = [
 ];
 
 const team = [
-  { name: 'Mrs. Nandi M.', role: 'Principal & Owner', desc: 'With over 15 years in early childhood development, Nandi founded Twin Stars with a vision of nurturing every child\'s unique potential.' },
+  { name: 'Mrs. Nandi M.', role: 'Principal & Owner', desc: 'With over 15 years in early childhood development, Nandi founded Twin Stars with a vision of nurturing the unique potential of every child.' },
   { name: 'Ms. Lerato S.', role: 'Lead Preschool Teacher', desc: 'Lerato brings creativity and warmth to the classroom, developing engaging curricula that prepare children for formal schooling.' },
-  { name: 'Ms. Thandi K.', role: 'Infant Care Specialist', desc: 'Thandi\'s gentle approach and deep understanding of infant development ensures every baby receives attentive, loving care.' },
+  { name: 'Ms. Thandi K.', role: 'Infant Care Specialist', desc: 'Thandi brings a gentle approach and deep understanding of infant development, so every baby receives attentive, loving care.' },
   { name: 'Mr. James P.', role: 'After Care Coordinator', desc: 'James creates a balanced after-care experience combining homework support with enriching activities that keep children engaged.' },
 ];
 

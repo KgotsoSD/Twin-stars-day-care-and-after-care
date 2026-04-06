@@ -13,11 +13,11 @@ export function Hero() {
           <div className="text-center lg:text-left">
             <div className="inline-flex items-center gap-2 bg-card/80 backdrop-blur-sm text-primary px-5 py-2 rounded-full text-sm font-bold font-display mb-6 animate-fade-in shadow-sm">
               <GraduationCap className="w-4 h-4 text-sunshine" />
-              Preschool & After Care
+              Day Care & After Care
             </div>
 
             <h1 className="font-display font-black text-4xl md:text-5xl lg:text-[3.5rem] text-foreground leading-[1.1] mb-6 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-              It's All About{' '}
+              It Is All About{' '}
               <span className="text-primary relative">
                 Your Child
                 <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 8" fill="none">

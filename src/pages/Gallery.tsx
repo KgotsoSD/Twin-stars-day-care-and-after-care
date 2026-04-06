@@ -5,14 +5,25 @@ import { PageHeader } from '@/components/shared/PageHeader';
 const categories = ['All', 'Classrooms', 'Outdoor', 'Events', 'Activities'];
 
 const photos = [
-  { src: 'https://images.unsplash.com/photo-1587654780251-5fe13ada3cba?w=600&h=400&fit=crop', alt: 'Children playing', category: 'Outdoor' },
+  {
+    src: 'https://images.unsplash.com/photo-1557452765-5b57d100c1dc?auto=format&fit=crop&w=600&h=400&q=80',
+    alt: 'Children playing',
+    category: 'Outdoor',
+  },
   { src: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&h=400&fit=crop', alt: 'Classroom learning', category: 'Classrooms' },
-  { src: 'https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=600&h=400&fit=crop', alt: 'Arts and crafts', category: 'Activities' },
+  {
+    src: 'https://images.unsplash.com/photo-1769720206146-0a9b287e6e28?auto=format&fit=crop&w=600&h=400&q=80',
+    alt: 'Arts and crafts',
+    category: 'Activities',
+  },
   { src: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600&h=400&fit=crop', alt: 'Story time', category: 'Classrooms' },
-  { src: 'https://images.unsplash.com/photo-1472162072942-cd5147eb3902?w=600&h=400&fit=crop', alt: 'Outdoor playground', category: 'Outdoor' },
+  { src: 'https://images.unsplash.com/photo-1472162072942-cd5147eb3902?w=600&h=400&fit=crop', alt: 'Outdoor play', category: 'Outdoor' },
   { src: 'https://images.unsplash.com/photo-1484820540004-14229fe36ca4?w=600&h=400&fit=crop', alt: 'Painting activity', category: 'Activities' },
-  { src: 'https://images.unsplash.com/photo-1576495199011-eb94736d05d6?w=600&h=400&fit=crop', alt: 'Concert event', category: 'Events' },
-  { src: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&h=400&fit=crop', alt: 'Group activity', category: 'Activities' },
+  {
+    src: 'https://images.unsplash.com/photo-1578349035260-9f3d4042f1f7?auto=format&fit=crop&w=600&h=400&q=80',
+    alt: 'Group activity',
+    category: 'Activities',
+  },
   { src: 'https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=600&h=400&fit=crop', alt: 'Sports day', category: 'Events' },
 ];
 
