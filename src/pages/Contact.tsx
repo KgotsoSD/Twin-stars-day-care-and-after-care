@@ -90,7 +90,7 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="animate-fade-in-right">
               <span className="inline-flex items-center gap-2 font-display font-bold text-secondary text-sm mb-2"><MessageSquareText className="w-4 h-4" />Send a Message</span>
-              <h2 className="font-display font-black text-3xl text-foreground mb-8">Drop Us a Line</h2>
+              <h2 className="font-display font-black text-3xl text-foreground mb-8">Send Us a Message</h2>
               {submitted ? (
                 <div className="bg-leaf/10 border border-leaf/30 rounded-3xl p-10 text-center">
                   <div className="w-16 h-16 bg-leaf/20 rounded-full flex items-center justify-center mx-auto mb-4">

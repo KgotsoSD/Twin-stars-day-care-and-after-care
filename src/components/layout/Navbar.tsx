@@ -30,11 +30,6 @@ export function Navbar() {
               twinstarsdaycare@gmail.com
             </span>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="opacity-80 mr-1">Follow Us:</span>
-            <a href="#" className="hover:opacity-80 transition-opacity" aria-label="Facebook"><Facebook className="w-3.5 h-3.5" /></a>
-            <a href="#" className="hover:opacity-80 transition-opacity" aria-label="Instagram"><Instagram className="w-3.5 h-3.5" /></a>
-          </div>
         </div>
       </div>
 
