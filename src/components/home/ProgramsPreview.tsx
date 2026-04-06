@@ -4,72 +4,101 @@ import { Baby, Puzzle, GraduationCap, BookOpen } from 'lucide-react';
 const programs = [
   {
     icon: Baby,
-    title: 'Infants',
+    title: 'Twin Stars Beginnings',
+    subtitle: 'Infant Care',
     age: '6 weeks – 12 months',
     desc: 'Tender loving care with focus on sensory development, bonding, and meeting individual needs.',
-    color: 'from-pink/20 to-pink/5',
-    iconColor: 'text-pink bg-pink/10',
+    gradient: 'from-pink-light to-card',
+    iconBg: 'bg-pink/15 text-pink',
+    borderColor: 'border-pink/20',
+    img: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400&h=300&fit=crop',
   },
   {
     icon: Puzzle,
-    title: 'Toddlers',
+    title: 'Twin Stars Sprouts',
+    subtitle: 'Toddler Program',
     age: '1 – 2 years',
-    desc: 'Interactive play-based learning supporting language development, motor skills, and social interaction.',
-    color: 'from-primary/20 to-primary/5',
-    iconColor: 'text-primary bg-primary/10',
+    desc: 'Interactive play-based learning supporting language, motor skills, and social interaction.',
+    gradient: 'from-teal-light to-card',
+    iconBg: 'bg-secondary/15 text-secondary',
+    borderColor: 'border-secondary/20',
+    img: 'https://images.unsplash.com/photo-1587654780251-5fe13ada3cba?w=400&h=300&fit=crop',
   },
   {
     icon: GraduationCap,
-    title: 'Preschool',
+    title: 'Twin Stars Pathways',
+    subtitle: 'Preschool Program',
     age: '3 – 5 years',
     desc: 'Structured curriculum preparing children for school with literacy, numeracy, and creative arts.',
-    color: 'from-leaf/20 to-leaf/5',
-    iconColor: 'text-leaf bg-leaf/10',
+    gradient: 'from-sunshine-light to-card',
+    iconBg: 'bg-sunshine/15 text-accent-foreground',
+    borderColor: 'border-sunshine/20',
+    img: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=300&fit=crop',
   },
   {
     icon: BookOpen,
-    title: 'After Care',
+    title: 'Twin Stars Achievers',
+    subtitle: 'After Care & Holiday Program',
     age: '6 – 12 years',
-    desc: 'Supervised homework time, enrichment activities, and safe environment for school-age children.',
-    color: 'from-secondary/20 to-secondary/5',
-    iconColor: 'text-secondary bg-secondary/10',
+    desc: 'Supervised homework, enrichment activities, and a safe environment for school-age children.',
+    gradient: 'from-leaf-light to-card',
+    iconBg: 'bg-leaf/15 text-leaf',
+    borderColor: 'border-leaf/20',
+    img: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&h=300&fit=crop',
   },
 ];
 
 export function ProgramsPreview() {
   return (
-    <section className="section-padding">
+    <section className="section-padding relative">
+      {/* Decorative */}
+      <div className="absolute top-8 right-12 w-5 h-5 rounded-full bg-primary/15 animate-bounce-gentle" />
+      <div className="absolute bottom-16 left-8 w-4 h-4 rounded-full bg-sunshine/20 animate-float" />
+
       <div className="container-main">
-        <div className="text-center mb-12">
-          <h2 className="font-display font-extrabold text-3xl md:text-4xl text-foreground mb-4">
-            Our Programs
+        <div className="text-center mb-14">
+          <span className="inline-block font-display font-bold text-primary text-sm mb-2 animate-fade-in">Our Programs ✦</span>
+          <h2 className="font-display font-black text-3xl md:text-4xl text-foreground mb-4 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+            Programs Designed for Growth
           </h2>
-          <p className="font-body text-muted-foreground max-w-2xl mx-auto text-lg">
+          <p className="font-body text-muted-foreground max-w-2xl mx-auto text-lg animate-fade-in" style={{ animationDelay: '0.15s' }}>
             Age-appropriate learning experiences tailored to each developmental stage
           </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {programs.map((prog, i) => (
-            <div
+            <Link
+              to="/programs"
               key={prog.title}
-              className={`rounded-2xl bg-gradient-to-b ${prog.color} p-6 border border-border hover:shadow-lg transition-all hover:-translate-y-1 animate-fade-in`}
+              className={`group rounded-2xl bg-gradient-to-b ${prog.gradient} border ${prog.borderColor} overflow-hidden hover:shadow-xl transition-all hover:-translate-y-2 animate-fade-in`}
               style={{ animationDelay: `${i * 0.1}s` }}
             >
-              <div className={`w-12 h-12 rounded-xl ${prog.iconColor} flex items-center justify-center mb-4`}>
-                <prog.icon className="w-6 h-6" />
+              {/* Image */}
+              <div className="aspect-[4/3] overflow-hidden">
+                <img
+                  src={prog.img}
+                  alt={prog.title}
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
               </div>
-              <h3 className="font-display font-bold text-lg text-foreground mb-1">{prog.title}</h3>
-              <p className="text-sm font-body font-semibold text-primary mb-3">{prog.age}</p>
-              <p className="font-body text-muted-foreground text-sm leading-relaxed">{prog.desc}</p>
-            </div>
+              <div className="p-5">
+                <div className={`w-11 h-11 rounded-xl ${prog.iconBg} flex items-center justify-center mb-3 -mt-10 relative z-10 shadow-md border-2 border-card`}>
+                  <prog.icon className="w-5 h-5" />
+                </div>
+                <h3 className="font-display font-extrabold text-base text-foreground mb-0.5">{prog.title}</h3>
+                <p className="text-xs font-body font-semibold text-muted-foreground mb-2">{prog.subtitle}</p>
+                <p className="font-body text-muted-foreground text-sm leading-relaxed">{prog.desc}</p>
+              </div>
+            </Link>
           ))}
         </div>
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-12">
           <Link
             to="/programs"
-            className="inline-flex px-6 py-3 bg-primary text-primary-foreground rounded-full font-display font-bold hover:opacity-90 transition-opacity"
+            className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground rounded-full font-display font-bold hover:shadow-lg hover:shadow-primary/20 transition-all"
           >
             View All Programs →
           </Link>
