@@ -11,31 +11,39 @@ import {
   getGoogleMapsEmbedSrc,
 } from '@/lib/site-info';
 
-const encodeBody = (form: HTMLFormElement) => {
+function encodeFormAsUrlEncoded(form: HTMLFormElement): string {
   const params = new URLSearchParams();
   new FormData(form).forEach((value, key) => {
     params.append(key, value instanceof File ? value.name : value);
   });
   return params.toString();
-};
+}
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submitFailed, setSubmitFailed] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitError(null);
+    setSubmitFailed(false);
     setSubmitting(true);
 
     const form = e.currentTarget;
+    const action = form.getAttribute('action') || '/';
+
+    if (import.meta.env.DEV) {
+      setSubmitting(false);
+      setSubmitFailed(true);
+      return;
+    }
 
     try {
-      const res = await fetch('/', {
+      const body = encodeFormAsUrlEncoded(form);
+      const res = await fetch(action, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encodeBody(form),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        body,
       });
 
       if (!res.ok) {
@@ -45,7 +53,7 @@ const Contact = () => {
       setSubmitted(true);
       form.reset();
     } catch {
-      setSubmitError('We could not send your message right now. Please email or call us instead.');
+      setSubmitFailed(true);
     } finally {
       setSubmitting(false);
     }
@@ -136,6 +144,7 @@ const Contact = () => {
                 <form
                   name="contact"
                   method="POST"
+                  action="/"
                   data-netlify="true"
                   data-netlify-honeypot="bot-field"
                   onSubmit={handleSubmit}
@@ -198,10 +207,48 @@ const Contact = () => {
                       placeholder="How can we help you?"
                     />
                   </div>
-                  {submitError ? (
-                    <p className="text-sm font-body text-destructive" role="alert">
-                      {submitError}
-                    </p>
+                  {submitFailed ? (
+                    <div
+                      role="alert"
+                      className="rounded-2xl border border-destructive/25 bg-destructive/5 px-4 py-3 text-sm font-body text-foreground space-y-2"
+                    >
+                      <p className="font-display font-bold text-destructive">
+                        We could not send your message through the form.
+                      </p>
+                      {import.meta.env.DEV ? (
+                        <p className="text-muted-foreground">
+                          Netlify Forms only run on your published site. Test on the live Netlify URL after the deploy
+                          finishes, or email{' '}
+                          <a href={`mailto:${SITE_EMAIL}`} className="text-primary font-semibold underline">
+                            {SITE_EMAIL}
+                          </a>
+                          .
+                        </p>
+                      ) : (
+                        <>
+                          <p className="text-muted-foreground">
+                            Please email{' '}
+                            <a href={`mailto:${SITE_EMAIL}`} className="text-primary font-semibold underline">
+                              {SITE_EMAIL}
+                            </a>
+                            {' or call '}
+                            {SITE_PHONES.map(({ display, tel }, i) => (
+                              <span key={tel}>
+                                {i > 0 ? ' · ' : null}
+                                <a href={`tel:${tel}`} className="text-primary font-semibold underline">
+                                  {display}
+                                </a>
+                              </span>
+                            ))}
+                            .
+                          </p>
+                          <p className="text-xs text-muted-foreground leading-relaxed">
+                            If you just triggered a Netlify deploy, wait until it is finished and the site is updated—forms
+                            only work on the latest published build.
+                          </p>
+                        </>
+                      )}
+                    </div>
                   ) : null}
                   <button
                     type="submit"
