@@ -50,6 +50,9 @@ export function Hero() {
           {/* Visual - Logo on blob */}
           <div className="relative flex justify-center animate-scale-in" style={{ animationDelay: '0.4s' }}>
             <div className="relative w-72 h-72 md:w-[400px] md:h-[400px]">
+              {/* Soft spotlight to make logo pop */}
+              <div className="absolute inset-8 rounded-full bg-white/55 blur-2xl" />
+
               {/* Blob background */}
               <div className="absolute inset-0">
                 <svg viewBox="0 0 400 400" className="w-full h-full">
@@ -60,10 +63,11 @@ export function Hero() {
                   />
                 </svg>
               </div>
+              <div className="absolute inset-6 rounded-full border-2 border-white/45 shadow-[0_0_40px_rgba(255,255,255,0.55)]" />
               <img
-                src="/images/logo.jpg"
+                src="/images/welcome-logo.png"
                 alt="Twin Stars Day Care"
-                className="relative z-10 w-full h-full object-contain p-10 drop-shadow-2xl"
+                className="relative z-10 w-full h-full object-contain p-8 md:p-9 drop-shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
               />
             </div>
           </div>
