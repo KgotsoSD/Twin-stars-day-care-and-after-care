@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Camera } from 'lucide-react';
+import { Camera, X } from 'lucide-react';
+import { PageHeader } from '@/components/shared/PageHeader';
 
 const categories = ['All', 'Classrooms', 'Outdoor', 'Events', 'Activities'];
 
@@ -17,33 +18,28 @@ const photos = [
 
 const Gallery = () => {
   const [active, setActive] = useState('All');
+  const [lightbox, setLightbox] = useState<number | null>(null);
   const filtered = active === 'All' ? photos : photos.filter(p => p.category === active);
 
   return (
     <>
-      <section className="section-padding bg-gradient-to-br from-pink/10 to-lavender/10">
-        <div className="container-main text-center">
-          <h1 className="font-display font-black text-4xl md:text-5xl text-foreground mb-4 animate-fade-in">
-            Gallery
-          </h1>
-          <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.1s' }}>
-            A glimpse into the joy and learning at Twin Stars
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        title="Moments to Remember"
+        subtitle="A glimpse into the joy and learning at Twin Stars"
+      />
 
       <section className="section-padding">
         <div className="container-main">
           {/* Filter tabs */}
-          <div className="flex flex-wrap gap-2 justify-center mb-10">
+          <div className="flex flex-wrap gap-2 justify-center mb-12">
             {categories.map(cat => (
               <button
                 key={cat}
                 onClick={() => setActive(cat)}
-                className={`px-5 py-2 rounded-full font-display font-bold text-sm transition-all
+                className={`px-6 py-2.5 rounded-full font-display font-bold text-sm transition-all
                   ${active === cat
-                    ? 'bg-primary text-primary-foreground shadow-md'
-                    : 'bg-muted text-muted-foreground hover:bg-primary/10 hover:text-primary'
+                    ? 'bg-primary text-primary-foreground shadow-md shadow-primary/20'
+                    : 'bg-card text-muted-foreground border border-border hover:border-primary hover:text-primary'
                   }`}
               >
                 {cat}
@@ -52,11 +48,12 @@ const Gallery = () => {
           </div>
 
           {/* Photo grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
             {filtered.map((photo, i) => (
-              <div
+              <button
                 key={photo.alt + i}
-                className="group relative aspect-[4/3] rounded-2xl overflow-hidden border border-border animate-scale-in"
+                onClick={() => setLightbox(i)}
+                className="group relative aspect-[4/3] rounded-3xl overflow-hidden border border-border animate-scale-in focus:outline-none focus:ring-2 focus:ring-primary"
                 style={{ animationDelay: `${i * 0.05}s` }}
               >
                 <img
@@ -65,13 +62,13 @@ const Gallery = () => {
                   loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/40 transition-colors flex items-center justify-center">
-                  <Camera className="w-8 h-8 text-background opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/30 transition-colors flex items-center justify-center">
+                  <Camera className="w-8 h-8 text-card opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-lg" />
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-foreground/60 to-transparent">
-                  <p className="text-background font-body font-semibold text-sm">{photo.alt}</p>
+                <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-foreground/50 to-transparent">
+                  <p className="text-card font-body font-bold text-sm">{photo.alt}</p>
                 </div>
-              </div>
+              </button>
             ))}
           </div>
 
@@ -80,6 +77,21 @@ const Gallery = () => {
           )}
         </div>
       </section>
+
+      {/* Lightbox */}
+      {lightbox !== null && (
+        <div className="fixed inset-0 z-50 bg-foreground/90 flex items-center justify-center p-4" onClick={() => setLightbox(null)}>
+          <button className="absolute top-6 right-6 text-card hover:text-primary transition-colors" onClick={() => setLightbox(null)}>
+            <X className="w-8 h-8" />
+          </button>
+          <img
+            src={filtered[lightbox]?.src}
+            alt={filtered[lightbox]?.alt}
+            className="max-w-full max-h-[85vh] rounded-2xl shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </>
   );
 };
